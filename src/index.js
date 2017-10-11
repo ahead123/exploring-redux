@@ -8,7 +8,10 @@ import './index.css'
 import App from './App'
 import DashBoard from './components/DashBoard'
 import registerServiceWorker from './registerServiceWorker'
+import { fireUpFirebaseApp } from './firebase'
 
+// initialize firebase app on root
+fireUpFirebaseApp()
 
 ReactDOM.render(
 	<Provider store={store}>

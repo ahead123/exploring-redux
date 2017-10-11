@@ -56,7 +56,7 @@ class RegistrationForm extends Component {
 				        	disabled={this.props.loading}
 				        	onClick={this.handleButtonPress.bind(this)}
 				        >
-				          {this.props.loading ? 'Loading...' : 'Register'}
+				          {this.props.loading ? 'Loading...' : 'Register / Login'}
 				        </Button>
 				      </Col>
 				    </FormGroup>

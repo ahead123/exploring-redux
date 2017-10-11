@@ -7,7 +7,8 @@ import {
 	PASSWORD_CHANGED,
 	LOGIN_USER_START,
 	LOGIN_USER_FAIL,
-	LOGIN_USER_SUCCESS 
+	LOGIN_USER_SUCCESS,
+	USER_LOGGED_OUT 
 } from './types'
 
 export const captureEmailChange = (text) => {
@@ -35,6 +36,17 @@ export const sendRegistrationToFirebase = ({ email, password }) => {
 				.then(user => loginUserSuccess(dispatch, user))
 				.catch(() => loginUserFail(dispatch))
 			})
+	}
+}
+
+export const logOutUser = () => {
+	return (dispatch) => {
+		firebase.auth().signOut()
+		.then(()=> { 
+			dispatch({ type: USER_LOGGED_OUT })
+			store.dispatch(push('/')) 
+		})
+		.catch(error => console.log(error))
 	}
 }
 
